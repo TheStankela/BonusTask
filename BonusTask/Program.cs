@@ -1,17 +1,23 @@
-﻿using BonusTask.IoC;
+﻿using BonusTask.Data;
+using BonusTask.IoC;
 
-var linqsearch = Factory.CreateLinqSearchClass();
-var linearsearch = Factory.CreateLinearSearchClass();
 
 //linq
-var result = linqsearch.FilterWeathersByTemperature(9, 2);
-var result2 = linqsearch.FilterWeathersByCountry("s", 2);
-var result3 = linqsearch.FilterWeatherByZipCode(23000);
+var linqSearchClass = Factory.CreateLinqSearchClass();
+
+var result = linqSearchClass.FilterWeathersByTemperature(9, 2);
+var result2 = linqSearchClass.FilterWeathersByCountry("s", 2);
+var result3 = linqSearchClass.FilterWeatherByZipCode(23000);
 
 
 //linear
-var result4 = linearsearch.FilterWeatherByZipCode(23000);
-var result5 = linearsearch.FilterWeathersByCountry("s", 2);
-var result6 = linearsearch.FilterWeathersByTemperature(9, 2);
+var linearSearchClass = Factory.CreateLinearSearchClass();
 
-Console.WriteLine();
+var result4 = linearSearchClass.FilterWeatherByZipCode(23000);
+var result5 = linearSearchClass.FilterWeathersByCountry("s", 2);
+var result6 = linearSearchClass.FilterWeathersByTemperature(9, 2);
+
+//bubble sort
+var bubbleSortClass = Factory.CreateBubbleSortAlgorithm();
+var result7 = bubbleSortClass.SortByTemperature(WeatherData.weatherList);
+var result8 = bubbleSortClass.SortByCity(WeatherData.weatherList);

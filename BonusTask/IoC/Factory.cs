@@ -27,5 +27,13 @@ namespace BonusTask.IoC
 		{
 			return new Pagination();
 		}
+		public static IDataSorter CreateBubbleDataSorter()
+		{
+			return new BubbleDataSorter();
+		}
+		public static ISortAlgorithm CreateBubbleSortAlgorithm()
+		{
+			return new BubbleSortAlgorithm(CreateBubbleDataSorter());
+		}
 	}
 }
